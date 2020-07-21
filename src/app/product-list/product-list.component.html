@@ -1,9 +1,18 @@
 <h2>Products</h2>
 
 <div *ngFor="let product of products">
-  <h3>{{product.name}} - {{product.price}}</h3>
+  <h3>
+    <a [title] ="'Click for ' + product.name + ' details'">
+      {{product.name}} - {{product.price}}
+    </a>
+  </h3>
+  
   <p *ngIf="product.description">{{product.description}}</p>
   <br>
+  
+  <button (click)='share()' > Share! </button>
+
+  <app-product-alerts [product]="product"></app-product-alerts>
 
 </div>
 <!-- 
